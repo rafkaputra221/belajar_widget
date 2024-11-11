@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+
 
 void main() => runApp(const MyApp());
 
@@ -11,27 +11,58 @@ class MyApp extends StatelessWidget {
     return MaterialApp( // Root widget
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('My Home Page'),
+          title: const Text('login'),
         ),
         body: Center(
-          child: Builder(
-            builder: (context) {
-              return Column(
-                children: [
-                  const Text('Hello, World!'),
-                  const SizedBox(height: 20),
-                  ElevatedButton(
-                    onPressed: () {
-                      print('Click!');
-                    },
-                    child: const Text('A button'),
-                  ),
-                ],
-              );
-            },
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Builder(
+              builder: (context) {
+                return Column(
+                  children: [
+                    Image.asset('FlutterLogo.webp'),
+                    TextField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: 'Email',
+              ),
+            ),
+            
+            TextField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: 'Password',
+              ),
+            ),     
+            const SizedBox(height: 20,),
+            const Text('forget Password'),
+            const SizedBox(height: 20,),   
+                    ElevatedButton(
+                    style: ElevatedButton.styleFrom(backgroundColor:const Color.fromARGB(255, 29, 6, 232)),
+                      onPressed: () {
+                        print('Click!');
+                      },
+                      child: const Text('login'),
+                    ),
+                  ],
+                );
+              },
+            ),
           ),
         ),
       ),
+    );
+  }
+}
+
+class PaddedText extends StatelessWidget {
+  const PaddedText({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: const Text('Hello, World!'),
     );
   }
 }
